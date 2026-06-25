@@ -3,67 +3,63 @@
 @layer base {
   :root {
     color-scheme: dark;
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-  }
-
-  .dark {
-    color-scheme: dark;
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --background: #08080C;
+    --foreground: #FFFFFF;
+    
+    /* Functional Operational Physics Symbols */
+    --cryo-cyan: #00E5FF;
+    --bio-ruby: #FF3336; /* Fixing the hash color to be a bit more Ruby */
+    --batch-emerald: #00FF66;
+    
+    --border: rgba(255, 255, 255, 0.08);
+    --input: rgba(255, 255, 255, 0.05);
+    --ring: var(--cryo-cyan);
   }
 
   html {
     scroll-behavior: smooth;
+    background-color: var(--background);
   }
 
   body {
     min-height: 100vh;
     margin: 0;
-    font-variant-ligatures: contextual;
-    text-rendering: optimizeLegibility;
-    background-color: hsl(var(--background));
-    background-image: radial-gradient(circle at top, rgba(56, 189, 248, 0.14), transparent 26%), radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.12), transparent 26%);
-    color: hsl(var(--foreground));
+    font-family: var(--font-inter), var(--font-geist-sans), sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    /* Background Dynamics */
+    background-image: 
+      radial-gradient(circle at top, rgba(0, 229, 255, 0.05), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(0, 255, 102, 0.03), transparent 30%);
   }
 
-  * {
-    box-sizing: border-box;
+  .mono {
+    font-family: var(--font-geist-mono), monospace;
   }
+}
 
-  *::selection {
-    background-color: rgba(34, 211, 238, 0.24);
-    color: white;
-  }
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background-color: rgba(0, 229, 255, 0.24);
+  color: white;
 }
 
 .glassmorphism {
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.dark .glassmorphism {
-  background: rgba(15, 23, 42, 0.65);
+  background: rgba(8, 8, 12, 0.65);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .marquee {
